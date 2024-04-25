@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>collections</title>
+    <style>
+      .pop-up-image {
+        position: absolute;
+        top: 840px;
+        right: 70px;
+        width: 400px;
+        height: 400px;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: transform 0.3s, opacity 0.3s;
+        transform-origin: center center;
+      }
+      .pop-up-image.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+      .car-image {
+        position: absolute;
+        top: 240px;
+        left: 30%;
+        z-index: 1;
+      }
+      .arrow {
+        width: 75px;
+        height: 75px;
+        background: rgba(217, 217, 217, 0.2);
+        border-radius: 50%;
+        position: absolute;
+        top: 300px;
+        font-size: 40px;
+        font-family: Inter;
+        font-weight: 400;
+        color: white;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+      }
+      .arrow.left {
+        left: 20px;
+      }
+      .arrow.right {
+        right: 20px;
+      }
+      @keyframes flicker {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .flicker-animation {
+        animation: flicker 1s ease-in-out 3;
+        position: absolute;
+        top: 0px;
+        left: 12%;
+        z-index: 0;
+        width: 1200px;
+      }
+    </style>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script>
+      function isInViewport(element) {
+        var rect = element.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <=
+            (window.innerWidth || document.documentElement.clientWidth)
+        );
+      }
+      function handleScroll() {
+        var image = document.querySelector(".pop-up-image");
+        if (isInViewport(image)) {
+          image.classList.add("visible");
+        }
+      }
+      window.addEventListener("scroll", handleScroll);
+      var images = [
+        "Mask group.png",
+        "Mask group (4).png",
+        "Mask group (5).png",
+        "Mask group (6).png",
+      ];
+
+      var currentIndex = 0;
+      function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateImage();
+      }
+      function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateImage();
+      }
+      function updateImage() {
+        var carImage = document.querySelector(".car-image");
+        carImage.src = images[currentIndex];
+      }
+    </script>
+  </head>
+  <body bgcolor="#493C3C">
+    <img src="Slice 1.png" alt="spotlight" class="flicker-animation" />
+    <div
+      style="
+        width: 1049px;
+        height: 70px;
+        background: #fbfbf9;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+        border-radius: 0px 0px 50px 50px;
+        border: 1px white solid;
+        position: absolute;
+        top: 0px;
+        left: 200px;
+        z-index: 1;
+      "
+    >
+      <a
+        href="collections.html"
+        style="
+          color: black;
+          text-decoration: none;
+          position: absolute;
+          left: 65px;
+          top: 23px;
+          z-index: 2;
+          font-size: 25px;
+        "
+        >Collections</a
+      >
+      <a
+        href="features.html"
+        style="
+          color: rgb(0, 0, 0);
+          text-decoration: none;
+          position: absolute;
+          left: 225px;
+          top: 23px;
+          z-index: 2;
+          font-size: 25px;
+        "
+        >Features</a
+      >
+      <a
+        href="index.html"
+        style="
+          color: rgb(0, 0, 0);
+          text-decoration: none;
+          position: absolute;
+          left: 390px;
+          top: 23px;
+          z-index: 2;
+          font-size: 25px;
+        "
+        >About Us</a
+      >
+      <a
+        href="feedback.html"
+        style="
+          color: rgb(0, 0, 0);
+          text-decoration: none;
+          position: absolute;
+          right: 55px;
+          top: 23px;
+          z-index: 2;
+          font-size: 25px;
+        "
+        >Feedback</a
+      >
+    </div>
+    <img
+      src="Mask group (2).png"
+      alt="logo"
+      style="
+        position: absolute;
+        top: 0px;
+        left: 55px;
+        width: 75px;
+        height: 75px;
+      "
+    />
+    <img src="Mask group.png" alt="grey car" class="car-image" />
+    <img
+      src="Mask group (1).png"
+      alt="stage"
+      style="position: absolute; top: 490px; left: 10%; z-index: 0"
+    />
+
+    <div class="arrow left" onclick="prevImage()"><</div>
+    <div class="arrow right" onclick="nextImage()">></div>
+    <div
+      style="
+        width: 1339px;
+        height: 0px;
+        border: 3px white solid;
+        position: absolute;
+        top: 800px;
+        left: 60px;
+      "
+    ></div>
+    <img
+      src="Mask group (3).png"
+      alt="red car"
+      class="pop-up-image"
+      width="400px"
+      height="400px"
+    />
+    <div
+      style="
+        width: 773px;
+        height: 222px;
+        color: white;
+        font-size: 40px;
+        font-family: Inter;
+        font-weight: 800;
+        word-wrap: break-word;
+        position: absolute;
+        top: 900px;
+        left: 100px;
+      "
+    >
+      Where the road ends,<br />Adventure begins
+    </div>
+    <div
+      style="
+        width: 600px;
+        height: 169px;
+        color: white;
+        font-size: 20px;
+        font-family: Inter;
+        font-weight: 400;
+        word-wrap: break-word;
+        position: absolute;
+        top: 1010px;
+        left: 100px;
+      "
+    >
+      An enduring icon that just keeps on giving, The All-New Thar comes
+      equipped with the iconic design and all new interiors to help you Explore
+      The Impossible
+    </div>
+    <div
+      style="
+        width: 1339px;
+        height: 0px;
+        border: 1px white solid;
+        position: absolute;
+        top: 1270px;
+        left: 60px;
+      "
+    ></div>
+    <div
+      style="
+        width: 847px;
+        height: 306px;
+        position: absolute;
+        top: 1300px;
+        left: 60px;
+      "
+    >
+      <span
+        style="
+          color: white;
+          font-size: 30px;
+          font-family: Inter;
+          font-weight: 600;
+          word-wrap: break-word;
+        "
+        >LX D MT 4WD HT EARTH ED</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >1615 000.00</span
+      >
+      <br />
+      <span
+        style="
+          color: #a8a3a3;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 500;
+          word-wrap: break-word;
+        "
+        >Transmission &nbsp;&nbsp;&nbsp;&nbsp; Max. Power
+        &nbsp;&nbsp;&nbsp;&nbsp; Seating Capacity</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 20px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >Manual
+        <span style="display: inline-block; width: 120px"></span>
+        97kW
+        <span style="display: inline-block; width: 120px"></span>
+        4 Seater</span
+      >
+      <br />
+      <span
+        style="
+          color: #a8a3a3;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 500;
+          word-wrap: break-word;
+        "
+        >Key Features</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 20px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >HVAC, Touchscreen, DRL, Alloys, BLD & R18 A/T Tyres,<br />
+        Driver Information System, ESP, Roll Cage, 2 Airbags, ABS</span
+      >
+    </div>
+    <div
+      style="
+        width: 1339px;
+        height: 0px;
+        border: 1px white solid;
+        position: absolute;
+        top: 1515px;
+        left: 60px;
+      "
+    ></div>
+    <div
+      style="
+        width: 847px;
+        height: 306px;
+        position: absolute;
+        top: 1550px;
+        right: -250px;
+      "
+    >
+      <span
+        style="
+          color: white;
+          font-size: 30px;
+          font-family: Inter;
+          font-weight: 600;
+          word-wrap: break-word;
+        "
+        >LX D AT 4WD HT EARTH ED</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >1760 001.00</span
+      >
+      <br />
+      <span
+        style="
+          color: #a8a3a3;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 500;
+          word-wrap: break-word;
+        "
+        >Transmission &nbsp;&nbsp;&nbsp;&nbsp; Max. Power
+        &nbsp;&nbsp;&nbsp;&nbsp; Seating Capacity</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 20px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >Automatic
+        <span style="display: inline-block; width: 120px"></span>
+        97kW
+        <span style="display: inline-block; width: 120px"></span>
+        4 Seater</span
+      >
+      <br />
+      <span
+        style="
+          color: #a8a3a3;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 500;
+          word-wrap: break-word;
+        "
+        >Key Features</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 20px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >HVAC, Touchscreen, DRL, Alloys, BLD & R18 A/T Tyres,<br />
+        Driver Information System, ESP, Roll Cage, 2 Airbags, ABS</span
+      >
+    </div>
+    <div
+      style="
+        width: 1339px;
+        height: 0px;
+        border: 1px white solid;
+        position: absolute;
+        top: 1765px;
+        left: 60px;
+      "
+    ></div>
+    <div
+      style="
+        width: 847px;
+        height: 306px;
+        position: absolute;
+        top: 1800px;
+        left: 60px;
+      "
+    >
+      <span
+        style="
+          color: white;
+          font-size: 30px;
+          font-family: Inter;
+          font-weight: 600;
+          word-wrap: break-word;
+        "
+        >LX P MT 4WD HT EARTH ED</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >1540 000.00</span
+      >
+      <br />
+      <span
+        style="
+          color: #a8a3a3;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 500;
+          word-wrap: break-word;
+        "
+        >Transmission &nbsp;&nbsp;&nbsp;&nbsp; Max. Power
+        &nbsp;&nbsp;&nbsp;&nbsp; Seating Capacity</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 20px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >Manual
+        <span style="display: inline-block; width: 120px"></span>
+        112kW
+        <span style="display: inline-block; width: 120px"></span>
+        4 Seater</span
+      >
+      <br />
+      <span
+        style="
+          color: #a8a3a3;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 500;
+          word-wrap: break-word;
+        "
+        >Key Features</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 20px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >HVAC, Touchscreen, DRL, Alloys, BLD & R18 A/T Tyres,<br />
+        Driver Information System, ESP, Roll Cage, 2 Airbags, ABS</span
+      >
+    </div>
+    <div
+      style="
+        width: 1339px;
+        height: 0px;
+        border: 1px white solid;
+        position: absolute;
+        top: 2020px;
+        left: 60px;
+      "
+    ></div>
+    <div
+      style="
+        width: 847px;
+        height: 306px;
+        position: absolute;
+        top: 2050px;
+        right: -250px;
+      "
+    >
+      <span
+        style="
+          color: white;
+          font-size: 30px;
+          font-family: Inter;
+          font-weight: 600;
+          word-wrap: break-word;
+        "
+        >LX P AT 4WD HT EARTH ED</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >1699 800.00</span
+      >
+      <br />
+      <span
+        style="
+          color: #a8a3a3;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 500;
+          word-wrap: break-word;
+        "
+        >Transmission &nbsp;&nbsp;&nbsp;&nbsp; Max. Power
+        &nbsp;&nbsp;&nbsp;&nbsp; Seating Capacity</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 20px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >Automatic
+        <span style="display: inline-block; width: 120px"></span>
+        112kW
+        <span style="display: inline-block; width: 120px"></span>
+        4 Seater</span
+      >
+      <br />
+      <span
+        style="
+          color: #a8a3a3;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 500;
+          word-wrap: break-word;
+        "
+        >Key Features</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 20px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >HVAC, Touchscreen, DRL, Alloys, BLD & R18 A/T Tyres,<br />
+        Driver Information System, ESP, Roll Cage, 2 Airbags, ABS</span
+      >
+    </div>
+    <div
+      style="
+        width: 1339px;
+        height: 0px;
+        border: 1px white solid;
+        position: absolute;
+        top: 2270px;
+        left: 60px;
+      "
+    ></div>
+    <div
+      style="
+        width: 847px;
+        height: 306px;
+        position: absolute;
+        top: 2300px;
+        left: 60px;
+      "
+    >
+      <span
+        style="
+          color: white;
+          font-size: 30px;
+          font-family: Inter;
+          font-weight: 600;
+          word-wrap: break-word;
+        "
+        >AX Optional Diesel RWD</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >1125 001.00</span
+      >
+      <br />
+      <span
+        style="
+          color: #a8a3a3;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 500;
+          word-wrap: break-word;
+        "
+        >Transmission &nbsp;&nbsp;&nbsp;&nbsp; Max. Power
+        &nbsp;&nbsp;&nbsp;&nbsp; Seating Capacity</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 20px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >Manual
+        <span style="display: inline-block; width: 120px"></span>
+        87.2kW
+        <span style="display: inline-block; width: 120px"></span>
+        4 Seater</span
+      >
+      <br />
+      <span
+        style="
+          color: #a8a3a3;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 500;
+          word-wrap: break-word;
+        "
+        >Key Features</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 20px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >HVAC, R16 A/T Tyres,Front Facing Rear-Seats<br />
+        Roll Cage, 2 Airbags, ABS</span
+      >
+    </div>
+    <div
+      style="
+        width: 1339px;
+        height: 0px;
+        border: 1px white solid;
+        position: absolute;
+        top: 2520px;
+        left: 60px;
+      "
+    ></div>
+    <div
+      style="
+        width: 847px;
+        height: 306px;
+        position: absolute;
+        top: 2550px;
+        right: -250px;
+      "
+    >
+      <span
+        style="
+          color: white;
+          font-size: 30px;
+          font-family: Inter;
+          font-weight: 600;
+          word-wrap: break-word;
+        "
+        >AX Optional Petrol 4WD</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >1430 000.00</span
+      >
+      <br />
+      <span
+        style="
+          color: #a8a3a3;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 500;
+          word-wrap: break-word;
+        "
+        >Transmission &nbsp;&nbsp;&nbsp;&nbsp; Max. Power
+        &nbsp;&nbsp;&nbsp;&nbsp; Seating Capacity</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 20px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >Manual
+        <span style="display: inline-block; width: 120px"></span>
+        112kW
+        <span style="display: inline-block; width: 120px"></span>
+        4 Seater</span
+      >
+      <br />
+      <span
+        style="
+          color: #a8a3a3;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 500;
+          word-wrap: break-word;
+        "
+        >Key Features</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 20px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >HVAC, R16 A/T Tyres,Front Facing Rear-Seats<br />
+        Roll Cage, 2 Airbags, ABS</span
+      >
+    </div>
+    <div
+      style="
+        width: 1339px;
+        height: 0px;
+        border: 1px white solid;
+        position: absolute;
+        top: 2760px;
+        left: 60px;
+      "
+    ></div>
+    <div
+      style="
+        width: 847px;
+        height: 306px;
+        position: absolute;
+        top: 2780px;
+        left: 60px;
+      "
+    >
+      <span
+        style="
+          color: white;
+          font-size: 30px;
+          font-family: Inter;
+          font-weight: 600;
+          word-wrap: break-word;
+        "
+        >AX Optional Diesel 4WD</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >1499 899.00</span
+      >
+      <br />
+      <span
+        style="
+          color: #a8a3a3;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 500;
+          word-wrap: break-word;
+        "
+        >Transmission &nbsp;&nbsp;&nbsp;&nbsp; Max. Power
+        &nbsp;&nbsp;&nbsp;&nbsp; Seating Capacity</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 20px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >Manual
+        <span style="display: inline-block; width: 120px"></span>
+        97kW
+        <span style="display: inline-block; width: 120px"></span>
+        4 Seater</span
+      >
+      <br />
+      <span
+        style="
+          color: #a8a3a3;
+          font-size: 25px;
+          font-family: Inter;
+          font-weight: 500;
+          word-wrap: break-word;
+        "
+        >Key Features</span
+      >
+      <br />
+      <span
+        style="
+          color: white;
+          font-size: 20px;
+          font-family: Inter;
+          font-weight: 400;
+          word-wrap: break-word;
+        "
+        >HVAC, R16 A/T Tyres,Front Facing Rear-Seats<br />
+        Roll Cage, 2 Airbags, ABS</span
+      >
+    </div>
+    <div
+      style="
+        background-color: #2c2323;
+        height: 250px;
+        z-index: 0;
+        position: absolute;
+        top: 3010px;
+        left: 10px;
+        width: 1450px;
+      "
+    ></div>
+    <img
+      src="Screenshot 2024-01-22 153303.png"
+      alt="instagram"
+      height="30px"
+      width="30px"
+      style="position: absolute; left: 95px; top: 3080px; z-index: 0"
+    />
+    <p
+      style="
+        position: absolute;
+        left: 130px;
+        top: 3070px;
+        z-index: 0;
+        color: white;
+      "
+    >
+      @thar_enterprises
+    </p>
+    <img
+      src="Screenshot 2024-01-22 153410.png"
+      alt="phone"
+      height="50px"
+      width="50px"
+      style="position: absolute; left: 255px; top: 3070px; z-index: 0"
+    />
+    <p
+      style="
+        position: absolute;
+        left: 300px;
+        top: 3070px;
+        z-index: 0;
+        color: white;
+      "
+    >
+      7896541297
+    </p>
+    <img
+      src="Screenshot 2024-01-22 153440.png"
+      alt="facebook"
+      height="40px"
+      width="40px"
+      style="position: absolute; left: 397px; top: 3075px; z-index: 0"
+    />
+    <p
+      style="
+        position: absolute;
+        left: 440px;
+        top: 3070px;
+        z-index: 0;
+        color: white;
+      "
+    >
+      thar_enterprises
+    </p>
+    <img
+      src="Screenshot 2024-01-24 130443.png"
+      alt="mail"
+      height="30px"
+      width="30px"
+      style="position: absolute; left: 562px; top: 3080px; z-index: 0"
+    />
+    <p
+      style="
+        position: absolute;
+        left: 600px;
+        top: 3070px;
+        z-index: 0;
+        color: white;
+      "
+    >
+      Thar_Enterprises@gmail.com
+    </p>
+    <img
+      src="Mask group (2).png"
+      alt="logo"
+      height="150px"
+      width="150px"
+      style="position: absolute; right: 190px; top: 3040px; z-index: 0"
+    />
+    <p
+      align="center"
+      style="
+        position: absolute;
+        top: 3200px;
+        left: 50px;
+        z-index: 0;
+        color: white;
+        font-size: 80%;
+      "
+    >
+      Copyright &copy; 2024 Thar Enterprises. All rights reserved. The content
+      and design of this website, including images, are the exclusive property
+      of Thar Enterprises and are protected by copyright laws. Unauthorized use,
+      reproduction, or distribution is strictly prohibited. <br />The Thar name,
+      logo, and related marks are trademarks of Thar Enterprises. Your use of
+      this site constitutes an agreement to respect our intellectual property
+      rights. For inquiries, contact us at Thar_Enterprises@gmail.com
+    </p>
+  </body>
+</html>

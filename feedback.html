@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Feedback Form</title>
+    <style>
+      .trapezoid {
+        border-bottom: 750px solid #353131;
+        border-left: 500px solid transparent;
+        width: 500px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+      }
+    </style>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body bgcolor="#d10a0a">
+    <div
+      style="
+        width: 1049px;
+        height: 70px;
+        background: #fbfbf9;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+        border-radius: 0px 0px 50px 50px;
+        border: 1px white solid;
+        position: absolute;
+        top: 0px;
+        left: 200px;
+        z-index: 1;
+      "
+    >
+      <a
+        href="collections.html"
+        style="
+          color: black;
+          text-decoration: none;
+          position: absolute;
+          left: 65px;
+          top: 23px;
+          z-index: 2;
+          font-size: 25px;
+        "
+        >Collections</a
+      >
+      <a
+        href="features.html"
+        style="
+          color: rgb(0, 0, 0);
+          text-decoration: none;
+          position: absolute;
+          left: 225px;
+          top: 23px;
+          z-index: 2;
+          font-size: 25px;
+        "
+        >Features</a
+      >
+      <a
+        href="index.html"
+        style="
+          color: rgb(0, 0, 0);
+          text-decoration: none;
+          position: absolute;
+          left: 390px;
+          top: 23px;
+          z-index: 2;
+          font-size: 25px;
+        "
+        >About Us</a
+      >
+      <a
+        href="feedback.html"
+        style="
+          color: rgb(0, 0, 0);
+          text-decoration: none;
+          position: absolute;
+          right: 55px;
+          top: 23px;
+          z-index: 2;
+          font-size: 25px;
+        "
+        >Feedback</a
+      >
+    </div>
+    <img
+      src="Mask group (2).png"
+      alt="logo"
+      style="
+        position: absolute;
+        top: 0px;
+        left: 55px;
+        width: 75px;
+        height: 75px;
+      "
+    />
+    <div class="trapezoid"></div>
+    <div
+      style="
+        width: 806px;
+        height: 570px;
+        background: #493c3c;
+        box-shadow: 20px 20px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        position: absolute;
+        top: 18%;
+        left: 22%;
+        z-index: 0;
+      "
+    ></div>
+    <div
+      style="
+        width: 471px;
+        height: 105px;
+        color: white;
+        font-size: 50px;
+        font-family: Inter;
+        font-weight: 600;
+        word-wrap: break-word;
+        z-index: 1;
+        position: absolute;
+        top: 20%;
+        left: 38%;
+      "
+    >
+      FEEDBACK FORM
+    </div>
+    <form
+      id="feedbackForm"
+      action="submit_feedback.php"
+      method="post"
+      onsubmit="return clearForm()"
+    >
+      <p
+        style="
+          z-index: 1;
+          position: absolute;
+          top: 25%;
+          left: 25%;
+          color: white;
+          font-size: 30px;
+        "
+      >
+        Email-Id
+      </p>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        style="
+          width: 468px;
+          height: 54px;
+          background: #979292;
+          z-index: 1;
+          position: absolute;
+          top: 35%;
+          left: 30%;
+        "
+        required
+      />
+      <p
+        style="
+          z-index: 1;
+          position: absolute;
+          top: 40%;
+          left: 25%;
+          color: white;
+          font-size: 30px;
+        "
+      >
+        Name
+      </p>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        style="
+          width: 468px;
+          height: 54px;
+          background: #979292;
+          z-index: 1;
+          position: absolute;
+          top: 50%;
+          left: 30%;
+        "
+        required
+      />
+      <p
+        style="
+          z-index: 1;
+          position: absolute;
+          top: 55%;
+          left: 25%;
+          color: white;
+          font-size: 30px;
+        "
+      >
+        Feedback
+      </p>
+      <textarea
+        name="feedback"
+        id="feedback"
+        style="
+          width: 468px;
+          height: 120px;
+          background: #979292;
+          z-index: 1;
+          position: absolute;
+          top: 65%;
+          left: 30%;
+        "
+        required
+      ></textarea>
+      <input
+        type="submit"
+        value="Submit"
+        style="
+          width: 150px;
+          height: 50px;
+          background: #f22424;
+          color: white;
+          font-size: 20px;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          z-index: 1;
+          position: absolute;
+          top: 85%;
+          left: 45%;
+        "
+      />
+    </form>
+
+    <script>
+      function clearForm() {
+        document.getElementById("feedbackForm").reset();
+        return false;
+      }
+    </script>
+  </body>
+</html>
